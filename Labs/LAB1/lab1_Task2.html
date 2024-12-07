@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css">
+    <style>
+        .tile {
+            background-color: aqua;
+            height: 150px;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .slide-container {
+            background-color: aqua;
+            height: 450px;
+            width: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+
+        .row {
+            display: flex;
+        }
+        .col-3 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .col-9 {
+            display: flex;
+            align-items: center; /* Центрируем содержимое по вертикали */
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <div class="tile">Tile 1</div>
+                <div class="tile">Tile 2</div>
+                <div class="tile">Tile 3</div>
+            </div>
+            <div class="col-9">
+                <div class="slide-container">JQUERY SLIDER</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

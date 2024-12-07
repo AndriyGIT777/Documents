@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab5_Task1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 18px; /* Зменшуємо розмір тексту */
+            font-weight: bold; /* Робить текст жирним */
+            text-align: left; /* Вирівняти по лівому краю */
+            margin-top: 0; /* Забираємо верхній відступ */
+            margin-bottom: 20px; /* Додаємо відступ знизу для простору */
+        }
+
+        .form-check-label {
+            font-size: 16px; /* Розмір шрифту для лейблів */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Ініціатор обговорення</h2>
+        <form>
+            <div class="row">
+                <!-- Перша колонка -->
+                <div class="col-md-4">
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="initiator" id="admin" value="admin" required>
+                        <label class="form-check-label" for="admin">Адміністрація інституту</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="initiator" id="edu-department" value="edu-department">
+                        <label class="form-check-label" for="edu-department">Навчальний відділ</label>
+                    </div>
+                </div>
+
+                <!-- Друга колонка -->
+                <div class="col-md-4">
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="initiator" id="social-department" value="social-department">
+                        <label class="form-check-label" for="social-department">Виховний відділ</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="initiator" id="secretary" value="secretary">
+                        <label class="form-check-label" for="secretary">Вчений секретар</label>
+                    </div>
+                </div>
+
+                <!-- Третя колонка -->
+                <div class="col-md-4">
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="initiator" id="eet-faculty" value="eet-faculty">
+                        <label class="form-check-label" for="eet-faculty">Факультет ЕЕТ</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="initiator" id="ep-faculty" value="ep-faculty">
+                        <label class="form-check-label" for="ep-faculty">Факультет ЕП</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="initiator" id="ai-faculty" value="ai-faculty">
+                        <label class="form-check-label" for="ai-faculty">Факультет АІ</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопка відправлення -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Відправити</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

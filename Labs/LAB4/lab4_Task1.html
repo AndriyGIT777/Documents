@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контактна форма</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Загальний стиль для контейнера форми */
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Заголовок форми */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 14px;
+            text-align: center;
+            color: #666;
+        }
+
+        /* Стиль для полів форми */
+        .form-label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .invalid-feedback {
+            font-size: 12px;
+            color: #e74c3c;
+        }
+
+        /* Кнопка відправки */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        /* Покращення вигляду чекбокса */
+        .form-check-input {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        /* Для зірочки обов'язкових полів */
+        .required::after {
+            content: " *";
+            color: red;
+        }
+
+        /* Загальний стиль для форми на мобільних */
+        @media (max-width: 576px) {
+            .container {
+                margin-top: 20px;
+                padding: 15px;
+            }
+
+            .btn-primary {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Контактна форма</h2>
+        <p>Відправити по електронній пошті. Всі поля позначені зірочкою (<span class="text-danger">*</span>) обов'язкові для заповнення.</p>
+        <form id="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+            <div class="mb-3">
+                <label for="name" class="form-label required">Ваше ім'я</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+                <div class="invalid-feedback">Ви не заповнили це поле.</div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label required">Електронна пошта</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <div class="invalid-feedback">Ви не заповнили це поле.</div>
+                <div class="invalid-feedback email-error">Адреса електронної пошти повинна містити символ "@".</div>
+                <div class="invalid-feedback email-part-error">Введіть частину після символа "@".</div>
+            </div>
+            <div class="mb-3">
+                <label for="subject" class="form-label required">Тема</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+                <div class="invalid-feedback">Ви не заповнили це поле.</div>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label required">Повідомлення</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                <div class="invalid-feedback">Ви не заповнили це поле.</div>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="sendCopy" name="sendCopy">
+                <label class="form-check-label" for="sendCopy">Надіслати копію собі</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Відправити</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Валідація форми
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', function(event) {
+            let valid = true;
+            const fields = form.querySelectorAll('input, textarea');
+            fields.forEach(function(field) {
+                if (field.required && !field.value) {
+                    field.classList.add('is-invalid');
+                    field.setCustomValidity("Ви не заповнили це поле.");
+                    valid = false;
+                } else {
+                    field.classList.remove('is-invalid');
+                    field.setCustomValidity(""); // Очищаємо повідомлення, якщо все вірно
+                }
+            });
+
+            // Валідація електронної пошти
+            const emailField = document.getElementById('email');
+            if (emailField.value && !emailField.value.includes("@")) {
+                emailField.classList.add('is-invalid');
+                emailField.setCustomValidity("Адреса електронної пошти повинна містити символ '@'.");
+                valid = false;
+            } else {
+                emailField.setCustomValidity(""); // Очищаємо повідомлення, якщо все вірно
+            }
+
+            if (emailField.value && emailField.value.indexOf("@") === emailField.value.length - 1) {
+                emailField.classList.add('is-invalid');
+                emailField.setCustomValidity("Введіть частину після символа '@'.");
+                valid = false;
+            } else {
+                emailField.setCustomValidity(""); // Очищаємо повідомлення, якщо все вірно
+            }
+
+            if (!valid) {
+                event.preventDefault(); // Зупинити відправку форми, якщо є помилки
+            }
+        });
+
+        // При заповненні поля зірочка зникає
+        const fields = document.querySelectorAll('input, textarea');
+        fields.forEach(function(field) {
+            field.addEventListener('input', function() {
+                if (field.value) {
+                    const label = field.previousElementSibling;
+                    if (label && label.classList.contains('required')) {
+                        label.classList.remove('required');
+                    }
+                } else {
+                    const label = field.previousElementSibling;
+                    if (label && !label.classList.contains('required')) {
+                        label.classList.add('required');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

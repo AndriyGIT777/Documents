@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ukrain">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстраційна картка</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .form-check-input {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                margin-top: 20px;
+                padding: 15px;
+            }
+
+            .btn-primary {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Реєстраційна картка</h2>
+        <form id="registration-form">
+            <!-- Ім'я -->
+            <div class="mb-3 input-group">
+                <span class="input-group-text" id="name-icon">👤</span>
+                <input type="text" class="form-control" id="first-name" name="first-name" required placeholder="Введіть своє ім'я" aria-describedby="name-icon">
+            </div>
+
+            <!-- Прізвище -->
+            <div class="mb-3 input-group">
+                <span class="input-group-text" id="surname-icon">👤</span>
+                <input type="text" class="form-control" id="last-name" name="last-name" required placeholder="Введіть своє прізвище" aria-describedby="surname-icon">
+            </div>
+
+            <!-- Логін -->
+            <div class="mb-3 input-group">
+                <span class="input-group-text" id="login-icon">@</span>
+                <input type="text" class="form-control" id="login" name="login" required placeholder="Введіть логін" aria-describedby="login-icon">
+            </div>
+
+            <!-- Пароль -->
+            <div class="mb-3 input-group">
+                <span class="input-group-text" id="password-icon">🔒</span>
+                <input type="password" class="form-control" id="password" name="password" required placeholder="Введіть пароль" aria-describedby="password-icon">
+            </div>
+
+            <!-- Дата народження -->
+            <div class="mb-3 input-group">
+                <span class="input-group-text" id="dob-icon">📅</span>
+                <input type="date" class="form-control" id="dob" name="dob" required aria-describedby="dob-icon">
+            </div>
+
+            <!-- Номер телефону -->
+            <div class="mb-3 input-group">
+                <span class="input-group-text" id="phone-icon">📞</span>
+                <input type="tel" class="form-control" id="phone" name="phone" required placeholder="+380XXXXXXXXX" aria-describedby="phone-icon">
+            </div>
+
+            <!-- Коментар -->
+            <div class="mb-3">
+                <label for="comment" class="form-label">Ваш коментар:</label>
+                <textarea class="form-control" id="comment" name="comment" rows="5" placeholder="Залиште ваш коментар тут"></textarea>
+            </div>
+
+            <!-- Прикріпити файл резюме -->
+            <div class="mb-3">
+                <label for="resume" class="form-label">Прикріпити файл резюме:</label>
+                <input type="file" class="form-control" id="resume" name="resume" required>
+                <div class="invalid-feedback">Файл не вибрано.</div>
+            </div>
+
+            <!-- Кнопка відправити -->
+            <button type="submit" class="btn btn-primary">Зареєструватися</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('registration-form');
+        form.addEventListener('submit', function(event) {
+            const fileInput = document.getElementById('resume');
+            if (!fileInput.value) {
+                fileInput.classList.add('is-invalid');
+                event.preventDefault();
+            } else {
+                fileInput.classList.remove('is-invalid');
+            }
+        });
+    </script>
+</body>
+</html>

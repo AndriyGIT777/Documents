@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>НМТ Сесії</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        .stage-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .popover-body {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5 p-4 rounded border" data-bs-toggle="popover" data-bs-content="14 березня 11 квітня 2024 року" data-bs-html="true" title="<b>Термін:</b>">
+        <a>
+            <span class="stage-title">Етап 1.</span> Реєстрація осіб для участі в основній сесії НМТ
+        </a>
+    </div>
+    <div class="container mt-3 p-4 rounded border" data-bs-toggle="popover" data-bs-content="14 березня 15 квітня 2024 року" data-bs-html="true" title="<b>Термін:</b>">
+        <a>
+            <span class="stage-title">Етап 2.</span> Можливість внесення змін в персональному кабінеті учасника НМТ (вибрати інший предмет додаткового блоку, змінити місце проведення НМТ)
+        </a>
+    </div>
+    <div class="container mt-3 p-4 rounded border" data-bs-toggle="popover" data-bs-content="10 травня 15 травня 2024 року" data-bs-html="true" title="<b>Термін:</b>">
+        <a>
+            <span class="stage-title">Етап 3.</span> Додатковий період реєстрації для участі в НМТ (для осіб, які не змогли з поважних причин зареєструватися для проходження НМТ під час основного періоду реєстрації; реєструвалися в основний період реєстрації, але яким було відмовлено в реєстрації для участі)
+        </a>
+    </div>
+    <div class="container mt-3 p-4 rounded border" data-bs-toggle="popover" data-bs-content="з 8 травня 2024 року" data-bs-html="true" title="<b>Термін:</b>">
+        <a>
+            <span class="stage-title">Етап 4.</span> Можливість завантаження з персональних сторінок запрошень для участі в основній сесії НМТ (зазначено дату, час і місце проведення НМТ)
+        </a>
+    </div>
+    <div class="container mt-3 p-4 rounded border" data-bs-toggle="popover" data-bs-content="14 травня 25 червня 2024 року" data-bs-html="true" title="<b>Термін:</b>">
+        <a>
+            <span class="stage-title">Етап 5.</span> Основна сесія НМТ
+        </a>
+    </div>
+    <div class="container mt-3 p-4 rounded border" data-bs-toggle="popover" data-bs-content="до 2 липня 2024 року" data-bs-html="true" title="<b>Термін:</b>">
+        <a>
+            <span class="stage-title">Етап 6.</span> Розміщення інформації про результати основної сесії НМТ на персональних сторінках учасників
+        </a>
+    </div>
+    <div class="container mt-3 p-4 rounded border" data-bs-toggle="popover" data-bs-content="до 8 липня 2024 року" data-bs-html="true" title="<b>Термін:</b>">
+        <a>
+            <span class="stage-title">Етап 7.</span> Можливість завантаження з персональних сторінок запрошень для участі в додатковій сесії НМТ (зазначено дату, час і місце проведення НМТ)
+        </a>
+    </div>
+    <div class="container mt-3 p-4 rounded border" data-bs-toggle="popover" data-bs-content="11 липня 19 липня 2024 року" data-bs-html="true" title="<b>Термін:</b>">
+        <a>
+            <span class="stage-title">Етап 8.</span> Додаткова сесія НMT
+        </a>
+    </div>
+    <div class="container mt-3 p-4 rounded border" data-bs-toggle="popover" data-bs-content="до 26 липня 2024 року" data-bs-html="true" title="<b>Термін:</b>">
+        <a>
+            <span class="stage-title">Етап 9.</span> Розміщення інформації про результати додаткової сесії НМТ на персональних сторінках
+        </a>
+    </div>
+
+    <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
+</body>
+</html>

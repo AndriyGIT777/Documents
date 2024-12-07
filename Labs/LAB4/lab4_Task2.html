@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контактна форма</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Загальний стиль для контейнера форми */
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Заголовок форми */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 14px;
+            text-align: center;
+            color: #666;
+        }
+
+        /* Стиль для полів форми */
+        .form-label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .invalid-feedback {
+            font-size: 12px;
+            color: #e74c3c;
+        }
+
+        /* Кнопка відправки */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        /* Покращення вигляду чекбокса */
+        .form-check-input {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        /* Загальний стиль для форми на мобільних */
+        @media (max-width: 576px) {
+            .container {
+                margin-top: 20px;
+                padding: 15px;
+            }
+
+            .btn-primary {
+                font-size: 14px;
+            }
+        }
+
+        /* Стиль для зірочки після іконки */
+        .input-group-text.required::after {
+            content: " *";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Контактна форма</h2>
+        <p>Відправити по електронній пошті. Всі поля позначені зірочкою (<span class="text-danger">*</span>) обов'язкові для заповнення.</p>
+        <form id="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+            <!-- Ім'я -->
+            <div class="mb-3 input-group">
+                <span class="input-group-text required" id="name-icon">👤</span>
+                <input type="text" class="form-control" id="name" name="name" required placeholder="Введіть ваше ім’я" aria-describedby="name-icon">
+                <div class="invalid-feedback">Ви не заповнили це поле.</div>
+            </div>
+
+            <!-- Електронна пошта -->
+            <div class="mb-3 input-group">
+                <span class="input-group-text required" id="email-icon">@</span>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="example@mail.com" aria-describedby="email-icon">
+                <div class="invalid-feedback">Ви не заповнили це поле.</div>
+                <div class="invalid-feedback email-error">Адреса електронної пошти повинна містити символ "@".</div>
+                <div class="invalid-feedback email-part-error">Введіть частину після символа "@".</div>
+            </div>
+
+            <!-- Тема -->
+            <div class="mb-3 input-group">
+                <span class="input-group-text required" id="subject-icon">📝</span>
+                <input type="text" class="form-control" id="subject" name="subject" required placeholder="Тема повідомлення" aria-describedby="subject-icon">
+                <div class="invalid-feedback">Ви не заповнили це поле.</div>
+            </div>
+
+            <!-- Повідомлення -->
+            <div class="mb-3 input-group">
+                <span class="input-group-text required" id="message-icon">💬</span>
+                <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Ваше повідомлення" aria-describedby="message-icon"></textarea>
+                <div class="invalid-feedback">Ви не заповнили це поле.</div>
+            </div>
+
+            <!-- Чекбокс для копії -->
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="sendCopy" name="sendCopy">
+                <label class="form-check-label" for="sendCopy">Надіслати копію собі</label>
+            </div>
+
+            <!-- Кнопка відправити -->
+            <button type="submit" class="btn btn-primary">Відправити</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Відстежуємо введення в поля та прибираємо зірочку
+        document.querySelectorAll('input, textarea').forEach(function(inputField) {
+            inputField.addEventListener('input', function() {
+                const icon = inputField.previousElementSibling; // Отримуємо попередній елемент (іконку)
+                if (inputField.value) {
+                    icon.classList.remove('required'); // Збираємо клас, який додає зірочку
+                } else {
+                    icon.classList.add('required'); // Додаємо клас зірочки
+                }
+            });
+        });
+    </script>
+</body>
+</html>

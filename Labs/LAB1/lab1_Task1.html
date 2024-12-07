@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шаблон сторінки</title>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Цвет фона */
+        }
+
+        /* Внешний контейнер телесного цвета */
+        #outer-container {
+            background-color: #d4a6a1; /* Телесный цвет */
+            padding: 50px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Чёрный контейнер внутри телесного */
+        #inner-black-container {
+            background-color: #000000; /* Чёрный */
+            padding: 50px;
+            margin: 30px auto;
+            width: 80%; /* Ширина контейнера */
+            color: white;
+            border-radius: 0px;
+            box-sizing: border-box;
+        }
+
+        /* Пурпурные контейнеры */
+        .purple-container {
+            background-color: #9b59b6; /* Пурпурный */
+            padding: 30px;
+            margin: 20px 0;
+            width: 90%;
+            color: white;
+            border-radius: 0px;
+
+            /* Используем flexbox для расположения чёрных контейнеров в ряд */
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Расстояние между контейнерами */
+        }
+
+        /* Внутренние чёрные контейнеры */
+        .black-container {
+            background-color: #000000; /* Чёрный */
+            padding: 40px;
+            width: 30%; /* Ширина контейнера */
+            color: white;
+            text-align: center;
+            border-radius: 0px;
+            box-sizing: border-box;
+            min-width: 180px; /* Минимальная ширина */
+        }
+
+        /* Кастомизация на мобильных устройствах */
+        @media (max-width: 768px) {
+            #outer-container {
+                padding: 30px;
+            }
+            #inner-black-container,
+            .purple-container,
+            .black-container {
+                width: 100%; /* Размера всех контейнеров будет 100% на маленьких экранах */
+            }
+            .purple-container {
+                flex-direction: column; /* Вертикальное расположение на мобильных устройствах */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Внешний контейнер телесного цвета -->
+    <div id="outer-container">
+        <!-- Чёрный контейнер внутри телесного -->
+        <div id="inner-black-container">
+            <!-- Первый пурпурный контейнер внутри чёрного -->
+            <div class="purple-container">
+                <div>Пурпурний контейнер 1</div>
+                <!-- Три чёрных контейнера внутри первого пурпурного, расположенные в ряд -->
+                <div class="black-container">Чёрний контейнер 1</div>
+                <div class="black-container">Чёрний контейнер 2</div>
+                <div class="black-container">Чёрний контейнер 3</div>
+            </div>
+
+            <!-- Второй пурпурный контейнер внутри чёрного -->
+            <div class="purple-container">
+                <div>Пурпурний контейнер 2</div>
+                <!-- Два чёрных контейнера внутри второго пурпурного, расположенные в ряд -->
+                <div class="black-container">Чёрний контейнер 1</div>
+                <div class="black-container">Чёрний контейнер 2</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+Вот мой код сделай чтоб Чёрный контейнер внутри телесного и всё что в нём находится располагалось по центру Внешнего контейнера телесного цвета 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab5_Task3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .fieldset {
+            padding: 20px;
+            border: 2px solid #d6d6d6; /* Світло-сіра рамка */
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .fieldset-legend {
+            font-weight: bold;
+            color: #000000; /* Чорний текст */
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .form-check-label {
+            font-size: 16px;
+        }
+
+        .form-switch {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <!-- Розділ: Вибір мов програмування -->
+            <div class="fieldset">
+                <p class="fieldset-legend">Виберіть мови програмування</p>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="python">
+                    <label class="form-check-label" for="python">Python</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="java">
+                    <label class="form-check-label" for="java">Java</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="javascript">
+                    <label class="form-check-label" for="javascript">JavaScript</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="pascal">
+                    <label class="form-check-label" for="pascal">Pascal</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="kotlin">
+                    <label class="form-check-label" for="kotlin">Kotlin</label>
+                </div>
+            </div>
+
+            <!-- Кнопка відправлення -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Відправити</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
