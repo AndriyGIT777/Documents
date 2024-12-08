@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GidPRO</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            background-image: url('https://cdn-ua.bodo.gift/upload/files/cm-experience/107/106723/images_file/all_all_big.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+
+        .header-bar {
+            background: rgba(0, 0, 0, 0.7); /* Світлочорна прозора полоска */
+            width: 100%; /* Ширина полоски */
+            padding: 10px 0; /* Внутрішні відступи */
+            display: flex;
+            justify-content: space-between; /* Вирівнювання елементів */
+            align-items: center; /* Вертикальне вирівнювання */
+            position: absolute; /* Фіксація вгорі */
+            top: 0; /* Відстань від верху */
+        }
+
+        .logo {
+            margin-left: 20px; /* Відступ зліва */
+        }
+
+        .support-info {
+            margin-right: 20px; /* Відступ справа */
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px; /* Відстань між іконками */
+        }
+
+        .social-links a {
+            color: white; /* Колір тексту */
+            text-decoration: none; /* Без підкреслення */
+        }
+
+        .content {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 60px; /* Відступ для полоски */
+        }
+
+        .tiles {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .tile {
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .tile img {
+            width: 150px;
+            height: 100px;
+            border-radius: 10px;
+        }
+
+        .description {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            color: black;
+            border-radius: 10px;
+            display: none; /* Сховати опис спочатку */
+            opacity: 0; /* Початкова непрозорість */
+            transition: opacity 0.5s ease; /* Анімація для непрозорості */
+        }
+
+        .description.show {
+            display: block; /* Показати опис */
+            opacity: 1; /* Зробити його видимим */
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="header-bar">
+            <div class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCD5UQ-yqZneoQ3EOnoMB7kPwn585m6lJ3Jb0Fu1nEw0XWK7yL2nbnrYIRRUjXdhSasKw&usqp=CAU" alt="Логотип GidPRO" width="50">
+                <span style="color: white; font-weight: bold;">GidPRO</span>
+            </div>
+            <div class="support-info">
+                <span style="color: white;">Тех. підтримка: +380 123 456 789</span>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com" target="_blank">Instagram</a>
+                <a href="https://www.telegram.org" target="_blank">Telegram</a>
+                <a href="https://www.facebook.com" target="_blank">Facebook</a>
+                <a href="https://www.twitter.com" target="_blank">Twitter</a>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Особливі місця.</h1>
+            <div class="tiles">
+                <div class="tile" onclick="toggleDescription('place1')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Everest_kalapatthar_crop.jpg/1200px-Everest_kalapatthar_crop.jpg" alt="Місцевість 1">
+                </div>
+                <div class="tile" onclick="toggleDescription('place2')">
+                    <img src="https://masterpiecer-images.s3.yandex.net/35fc6c533e9e11eea0353e94d70b2e0e:upscaled" alt="Місцевість 2">
+                </div>
+                <div class="tile" onclick="toggleDescription('place3')">
+                    <img src="https://avatars.mds.yandex.net/i?id=db16dee1282876f381f81cdaab48febacf1eb2b3-12644621-images-thumbs&n=13" alt="Місцевість 3">
+                </div>
+            </div>
+            <div id="description" class="description"></div>
+        </div>
+    </div>
+    <script>
+        let currentPlace = null;
+        function toggleDescription(place) {
+            const description = document.getElementById('description');
+            let text = '';
+
+            if (currentPlace === place) {
+                // Якщо опис вже відкритий, закриваємо його
+                description.classList.remove('show');
+                setTimeout(() => {
+                    description.style.display = 'none'; // Сховати опис після анімації
+                }, 500); // Час, що відповідає тривалості анімації
+                currentPlace = null;
+            } else {
+                // Визначаємо текст для нового місця
+                switch (place) {
+                    case 'place1':
+                        text = '<h2>Еверест</h2><p>Еверест, або Джомолунгма, є найвищою горою світу, висота якої становить 8848,86 метра. Розташована в Гімалаях на кордоні Непалу та Китаю, вона є популяр ною метою для альпіністів з усього світу. Ця гора є не лише природним дивом, але й символом людської витривалості та прагнення до досягнення вершин.</p>';
+                        break;
+                    case 'place2':
+                        text = '<h2>Гімалаї</h2><p>Ця гора є не лише природним дивом, але й символом людської витривалості та прагнення до досягнення вершин. Висота гірських вершин перевищує 8000 м, включаючи найвищу точку на Землі — Еверест (8848 м). Гімалаї не лише вражають своєю красою, але й мають величезне значення для клімату, водних ресурсів та культурної спадщини регіону.</p>';
+                        break;
+                    case 'place3':
+                        text = '<h2>Гора Аконкагуа</h2><p>Гора Аконкагуа — найвища вершина Південної Америки та найвища гора за межами Гімалаїв, з висотою 6 961 м над рівнем моря. Вона розташована в Андських горах на території Аргентини, неподалік від кордону з Чилі.</p>';
+                        break;
+                }
+
+                description.innerHTML = text;
+                description.style.display = 'block'; // Показати опис
+                setTimeout(() => {
+                    description.classList.add('show');
+                }, 10); // Невелика затримка для запуску анімації
+                currentPlace = place;
+            }
+        }
+    </script>
+</body>
+</html>
