@@ -1,0 +1,13 @@
+"background" - "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCD5UQ-yqZneoQ3EOnoMB7kPwn585m6lJ3Jb0Fu1nEw0XWK7yL2nbnrYIRRUjXdhSasKw&usqp=CAU" "Логотип GidPRO"
+          
+<a href="https://www.instagram.com" target="_blank">Instagram</a>
+<a href="https://www.telegram.org" target="_blank">Telegram</a>
+<a href="https://www.facebook.com" target="_blank">Facebook</a>
+<a href="https://www.twitter.com" target="_blank">Twitter</a>
+
+"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Everest_kalapatthar_crop.jpg/1200px-Everest_kalapatthar_crop.jpg" "Місцевість 1"
+
+"https://masterpiecer-images.s3.yandex.net/35fc6c533e9e11eea0353e94d70b2e0e:upscaled" "Місцевість 2"
+
+"https://avatars.mds.yandex.net/i?id=db16dee1282876f381f81cdaab48febacf1eb2b3-12644621-images-thumbs&n=13" "Місцевість 3"
+
